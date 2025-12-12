@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title} ?: 'Catalogo'">Catalogo</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<nav class="topbar">
+  <a href="/" class="brand">Catalogo</a>
+  <a href="/admin/products" class="pill" sec:authorize="hasRole('ADMIN')">Admin</a>
+  <form action="/products" method="get" class="search">
+    <input type="text" name="name" placeholder="Cerca prodotti" th:value="${searchName}">
+    <button type="submit">Cerca</button>
+  </form>
+  <div class="auth">
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" style="display:inline">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      <button type="submit" class="linklike">Logout</button>
+    </form>
+    <a sec:authorize="isAnonymous()" href="/login">Login</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row between">
+    <h1>Prodotti</h1>
+    <a class="pill" href="/admin/products/new">Nuovo</a>
+  </div>
+  <table>
+    <thead><tr><th>Nome</th><th>Tipo</th><th>Prezzo</th><th>Azioni</th></tr></thead>
+    <tbody>
+    <tr th:each="p: ${products}">
+      <td th:text="${p.name}"></td>
+      <td th:text="${p.type} ?: '-'"></td>
+      <td th:text="${p.price != null ? #numbers.formatDecimal(p.price,1,2) + ' €' : '—'}"></td>
+      <td class="actions">
+        <a th:href="@{'/admin/products/' + ${p.id} + '/edit'}">Modifica</a>
+        <a th:href="@{'/admin/products/' + ${p.id} + '/similar'}">Simili</a>
+        <form th:action="@{'/admin/products/' + ${p.id} + '/delete'}" method="post" style="display:inline">
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+          <button type="submit">Elimina</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

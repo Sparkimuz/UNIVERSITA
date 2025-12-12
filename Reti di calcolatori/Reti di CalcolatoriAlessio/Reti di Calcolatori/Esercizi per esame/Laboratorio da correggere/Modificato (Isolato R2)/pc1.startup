@@ -1,0 +1,12 @@
+# to eth0 a MAC address is assigned
+# different from the default one
+ip link set dev eth0 address 00:00:00:00:00:01
+
+# to eth0 an IPv4 address is assigned
+ip address add 195.11.14.5/24 dev eth0
+
+# a default router is selected
+ip route add default via 195.11.14.1
+
+# Al posto di .1 (alla fine) c'era .2 --> E' sbagliato visto che PC0 e PC1 sono sulla stessa LAN
+#                                         ed hanno lo stesso router di default!

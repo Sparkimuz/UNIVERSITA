@@ -1,0 +1,19 @@
+FASE 1: Analisi del Generatore
+└─ Prendi 10 modelli diversi (Stable Diffusion, DALLE, GAN, ecc.)
+└─ Genera deepfake con ognuno
+└─ Misura: opacità sfondo, velocità movimento, pattern frequenziali
+└─ Crea DATABASE di "firme"
+
+FASE 2: Estrazione di Feature Ricorrenti
+└─ Analizza il DCT (trasformata coseno) di ogni immagine fake
+└─ Misura correlazioni spettrali
+└─ Rileva pattern di up-sampling
+└─ Per video: misura coerenza optical flow
+
+FASE 3: Classificazione (ML)
+└─ Allena classifier: data = immagine fake → output = "quale modello l'ha creata?"
+└─ Testa su deepfake INEDITI (generati con modelli non visti in training)
+
+FASE 4: Robustezza
+└─ Prova a comprimerai deepfake, aggiungi rumore
+└─ Verifica se riesci ancora a identificare il modello

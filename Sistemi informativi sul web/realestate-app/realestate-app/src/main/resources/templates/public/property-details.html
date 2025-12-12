@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Proprietà - Agenzia Immobiliare</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img th:if="${property.imageUrl != null}" th:src="${property.imageUrl}" class="img-fluid rounded" alt="Immagine Proprietà">
+                <img th:if="${property.imageUrl == null}" th:src="@{/images/property-placeholder.jpg}" class="img-fluid rounded" alt="Immagine Proprietà">
+            </div>
+            <div class="col-md-6">
+                <h1 th:text="${property.address}">Indirizzo Proprietà</h1>
+                <p class="lead" th:text="${property.city}">Città</p>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Dettagli</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Prezzo:</strong> <span th:text="${#numbers.formatDecimal(property.price, 0, 'POINT', 2, 'COMMA')} + ' €'">Prezzo</span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Dimensione:</strong> <span th:text="${property.size} + ' m²'">Dimensione</span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Tipo:</strong> <span th:text="${property.type}">Tipo</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div th:if="${#authorization.expression('hasAnyRole(''ADMIN'', ''AGENT'')')}">
+                    <a th:href="@{/property/edit/{id}(id=${property.id})}" class="btn btn-warning">Modifica</a>
+                    <a th:href="@{/property/delete/{id}(id=${property.id})}" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questa proprietà?')">Elimina</a>
+                    <a th:href="@{/contract/add?propertyId={id}(id=${property.id})}" class="btn btn-success">Crea Contratto</a>
+                </div>
+                
+                <a th:href="@{/property/all}" class="btn btn-secondary mt-3">Torna alle Proprietà</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer th:replace="fragments/footer :: footer"></footer>
+    
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

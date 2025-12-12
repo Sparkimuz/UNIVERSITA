@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title} ?: 'Catalogo'">Catalogo</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<nav class="topbar">
+  <a href="/" class="brand">Catalogo</a>
+
+  <a href="/admin/products" class="pill" sec:authorize="hasRole('ADMIN')">Admin</a>
+
+  <form action="/products" method="get" class="search">
+    <input type="text" name="name" placeholder="Cerca prodotti" th:value="${searchName}">
+    <button type="submit">Cerca</button>
+  </form>
+
+  <div class="auth">
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" style="display:inline">
+      <input th:if="${_csrf != null}" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      <button type="submit" class="linklike">Logout</button>
+    </form>
+    <a sec:authorize="!isAuthenticated()" href="/login">Login</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="product-detail">
+    <h1 th:text="${p.name} ?: 'Prodotto'">Prodotto</h1>
+    <p class="muted" th:text="${p.type} ?: ''">Tipo</p>
+
+    <p class="price xl" th:if="${p.price != null}"
+       th:text="${#numbers.formatDecimal(p.price,1,2) + ' €'}">0,00 €</p>
+    <p class="price xl" th:unless="${p.price != null}">—</p>
+
+    <p th:text="${p.description} ?: ''">Descrizione</p>
+  </div>
+
+  <section th:if="${similar != null and !#lists.isEmpty(similar)}">
+    <h2>Prodotti simili</h2>
+    <div class="grid">
+      <a class="card linkcard" th:each="s : ${similar}" th:href="@{'/products/' + ${s.id}}">
+        <h3 th:text="${s.name}">Nome</h3>
+        <p class="muted" th:text="${s.type}">Tipo</p>
+        <p class="price" th:if="${s.price != null}"
+           th:text="${#numbers.formatDecimal(s.price,1,2) + ' €'}">0,00 €</p>
+        <p class="price" th:unless="${s.price != null}">—</p>
+        <span class="cta">Dettagli</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="comments">
+    <h2>Commenti</h2>
+
+    <div th:if="${comments == null or #lists.isEmpty(comments)}" class="muted">Ancora nessun commento.</div>
+
+    <div th:each="c : ${comments}" class="comment">
+      <div class="row">
+        <span class="muted" th:text="${c.authorUsername} ?: 'utente'">utente</span>
+        <span class="muted" th:if="${c.createdAt != null}"
+              th:text="${#temporals.format(c.createdAt,'dd/MM/yyyy HH:mm')}">data</span>
+        <span class="muted" th:unless="${c.createdAt != null}">—</span>
+      </div>
+
+      <p th:text="${c.text} ?: ''">testo</p>
+
+      <div class="row"
+           th:if="${#authentication != null and (#authentication.name == c.authorUsername or #authorization.expression('hasRole(''ADMIN'')'))}">
+        <a th:href="@{'/comments/' + ${c.id} + '/edit'}">Modifica</a>
+        <form th:action="@{'/comments/' + ${c.id} + '/delete'}" method="post" style="display:inline; margin-left:8px">
+          <input th:if="${_csrf != null}" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+          <button type="submit">Elimina</button>
+        </form>
+      </div>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+      <h3>Nuovo commento</h3>
+      <form th:action="@{'/comments/product/' + ${p.id}}" method="post" th:object="${newComment}">
+        <input th:if="${_csrf != null}" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <textarea th:field="*{text}" rows="3" required></textarea>
+        <button type="submit">Pubblica</button>
+      </form>
+    </div>
+
+    <div sec:authorize="!isAuthenticated()">
+      <p>Accedi per inserire un commento.</p>
+    </div>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+Prompt per la Descrizione del Progetto Basato sui Sorgenti (Contesto Automobilistico)
+Descrivi in dettaglio un'applicazione web sviluppata in Spring Boot, per il css utilizza springboot modificandolo dove serve basata sulle seguenti caratteristiche e componenti estratti dai file sorgente:
+1.
+Architettura e Componenti Principali:
+◦
+Il progetto segue un'architettura basata su Controller, Service e Repository.
+◦
+Utilizza Spring Security per l'autenticazione e l'autorizzazione.
+◦
+Include componenti di validazione per i dati di input.
+◦
+Gestisce il caricamento di file immagine.
+2.
+Modelli Dati (Entità):
+◦
+Property: Rappresenta una proprietà con attributi come id, address, city, price, size, type, un URL per l'immagine. Una Proprietà è associata a un Contratto uno a molti (può avere più contratti).
+◦
+Agent: Rappresenta un agente immobiliare, con nome, cognome, data di nascita (birth) e un URL per l'immagine. Un Agente è associato a una collezione di contratti. Un User può essere associato a un Agente. L’agente è anche associato molti a uno con l’azienda RealEstateAgency.
+◦
+Contract: Rappresenta un contratto tra un Client un Agent e una Property, con attributi id, startDate, endDate, finalPrice.
+
+Client: Rappresenta un cliente dell’agenzia immobiliare, con nome, cognome, data di nascita (birth). Un Cliente è associato a una collezione di contratti. Il client non rappresenta l’utente principale del sistema ma viene gestito dagli agenti per inserire i contratti
+
+RealEstateAgency: Rappresenta un agenzia immobiliare è associata ad una a molti con la classe agent con attributi id, address e city
+◦
+User e Credentials: Rappresentano gli utenti del sistema e le loro credenziali (username, password, ruolo). Un User ha un nome, cognome, data di nascita e un URL immagine, ed è collegato a un Agent.
+3.
+Sistema di Autenticazione e Autorizzazione:
+◦
+Ci sono due ruoli definiti: ADMIN e Agent.
+◦
+Gli utenti possono registrarsi e accedere (login). La password viene codificata.
+◦
+Dopo il login, gli utenti vengono reindirizzati a pagine diverse in base al loro ruolo (admin/index.html per ADMIN, Agent/index.html per altri, che dai sorgenti sembra implicare il ruolo Agent).
+◦
+L'accesso a diverse URL (/admin/, /agent/, /property/, etc.) è controllato in base al ruolo dell'utente autenticato.
+4.
+Funzionalità Principali Esposte dai Controller:
+◦
+Accesso Pubblico/Generico:
+▪
+Visualizzazione di tutte le Property.
+▪
+Visualizzazione dei dettagli di una singola Property.
+
+Ricerca delle property in base all’attributo city
+▪
+Visualizzazione di tutti i Agent.
+▪
+Visualizzazione dei dettagli di un singolo Agent.
+▪
+Visualizzazione di tutte le RealEstateAgency.
+
+Visualizzazione dei dettagli di una singola RealEstateAgency.
+◦
+Funzionalità per il Ruolo Agent:
+▪
+Gestione (aggiunta, rimozione) delle Property associate al proprio profilo agent.
+▪
+Gestione (aggiunta, rimozione) dei contract per le proprie Property con la gestione e l’inserimento dei client.
+▪
+
+◦
+Funzionalità per il Ruolo ADMIN:
+▪
+Gestione (aggiunta, rimozione) di tutte le Property presenti nel sistema.
+▪
+Associazione di una Property a uno specifico Contract.
+▪
+Gestione (aggiunta, rimozione) di tutti i Agent (con eccezione per il proprio profilo, presumibilmente).
+▪
+Gestione (aggiunta) di nuovi Contract generici.
+▪
+Gestione (aggiunta, rimozione) degli contract per qualsiasi Property.
+▪
+Gestione (visualizzazione, rimozione) di tutti i client presenti nel sistema.
+5.
+Validazioni Presenti:
+◦
+Validazione della password (lunghezza minima) e unicità dello username durante la registrazione.
+◦
+Validazione dell'anno di nascita per User e Agent (tra 1900 e 2025).
+◦
+Validazione per evitare Property duplicate per lo stesso Agent (basato sul modello).
+◦
+Validazione per evitare Agent duplicati (basato su nome, cognome, data di nascita).
+◦
+Validazione per evitare Contract duplicati (basato sull’id).
+Validazione per evitare Client duplicati (basato sul nome e cognome).

@@ -1,0 +1,39 @@
+
+.container{
+   font-weight: 600;
+}
+
+
+  .card-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+
+  .card-img-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          color:white;
+        }
+  .text {
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+/* Media query per dispositivi più piccoli */
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 250px; /* Riduce la larghezza della card */
+    max-width: 250px;
+  }
+
+  .card-content h3 {
+    font-size: 1.2em; /* Riduce la dimensione del testo */
+  }
+
+  .card-content p {
+    font-size: 0.9em; /* Riduce la dimensione del testo */
+  }
+}

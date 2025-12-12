@@ -1,0 +1,36 @@
+Secondo esonero 18/06/2023:
+Non so se lo hanno già detto ma al secondo esonero ha aggiunto a paperopoly che le caselle con un personaggio potevano essere di proprietà (come il Monopoly) e che ogni lato formava un rione, se sei proprietario di un intero rione ti pagano il doppio
+E l'esercizio che valeva di più era fare il modello di dominio
+
+Esame 30/01/2025:
+Qui mando le differenze tra il progetto e la traccia dell'esame completo di paperopoly del 30 gennaio 2025:
+
+REQUISITI GRUPPO A: nessun cambiamento
+
+REQUISITI GRUPPO B: nessun cambiamento
+
+REQUISITI GRUPPO C: ora la casella *deposito* fa perdere 2 turni invece che 1; la casella *dadi* fa rilanciare i dadi e muovere invece di fare +3; se si finisce sul *granchio* si deve tornare alla casella di partenza *del turno* invece che tornare sul *Via*
+
+AGGIUTA REQUISITI, GRUPPO D: Questi sono nuovi: Esiste la casella *Bassotti* che fa stare fermi finche un altro giocatore non ci finisce sopra e libera il primo rimanendo però lui bloccato finche non arriva un altro giocatore
+Esiste la casella proprietà (tutte quelle con un papero sopra) dove vale la stessa logica di monopoly del libro, la si puo comprare e se è gia di qualcuno si paga un importo scritto sopra
+
+le caselle proprieta (paperi) sono suddivise in *Rioni*  in base al *lato* del tabellone: ad esempio le caselle proprieta (paperi) nel lato superiore  sono chiamate "Rione paperi NORD"
+
+Questa suddivisione serve perche se un giocatore possiede tutte le caselle proprieta di un intero lato, diventa "capo" di quel lato e quando un altro giocatore finisce sopra  quelle caselle proprieta deve pagare il doppio dell'importo normale
+
+
+ESERCIZI:
+A1, modellazione di dominio di TUTTI i casi (A,B,C,D) (10 punti)
+A2, Diagrammi di interazione e DCD del solo caso A (come il progetto)
+A3, Diagrammi di interazione di solo A e B senza C,D (fare il confronto dai diagrammi precedenti) 
+A4, Diagrammi di interazione di solo A e C senza B,D (fare il confronto penso intenda che non serve riscrivere interi diagrammi identici tra vari esercizi, però metterci una nota è suggerito)
+
+A5, DCD degli esercizi A2 A3 A4 messi insieme (1  punto)
+A6, Teoria, enunciare il pattern GRASP "Creator" con Problema Soluzione (1 punto)
+
+
+Si hanno 2h e 15 min (per chi ha fatto il progetto, altrimenti 2h)
+Consigli: 
+fare assolutamente il progetto, 2h e 15 sono cmq poche per pensare e scrivere; 
+fare tutto a panna perche non cè tempo per ricalcare dopo (io ho fatto giusto il modello di dominio a matita e ricalcato quando mi sembrava corretto e gia li stavo risicato)
+Studiare a memoria i casi del libro (in questo caso monopoly) sono tutti ampliamenti che vengono da la in un modo o in un altro (e oggi lo ha ripetuto a voce piu volte)

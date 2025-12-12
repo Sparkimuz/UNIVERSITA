@@ -1,0 +1,16 @@
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=1
+
+ip link set eth0 up   # verso Z 
+ip link set eth1 up   # verso B
+
+ip addr add 200.0.0.1/24 dev eth0      # indirizzo lato Z (esempio)
+ip addr add 10.0.0.2/30  dev eth1      # indirizzo lato B (esempio)
+
+ip link set eth0 mtu 1500                    # MTU Z = 1500
+ip link set eth1 mtu 1500                    # “LAN di fronte a B” = 1500
+
+# verso W/Y/X/LA passa da rC
+ip route add 100.0.0.0/24     via 10.0.0.1 dev eth1
+ip route add 193.205.142.176/30 via 10.0.0.1 dev eth1
+ip route add 193.205.142.0/25   via 10.0.0.1 dev eth1

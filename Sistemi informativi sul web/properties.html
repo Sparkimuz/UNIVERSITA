@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proprietà - Agenzia Immobiliare</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    
+    <div class="container mt-5">
+        <h1>Tutte le Proprietà</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <form th:action="@{/property/search}" method="get" class="form-inline">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Cerca per città" th:value="${city != null ? city : ''}">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Cerca</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 text-right" th:if="${#authorization.expression('hasAnyRole(''ADMIN'', ''AGENT'')')}">
+                <a th:href="@{/property/add}" class="btn btn-success">Aggiungi Proprietà</a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4" th:each="property : ${properties}">
+                <div class="card h-100">
+                    <img th:if="${property.imageUrl != null}" th:src="${property.imageUrl}" class="card-img-top" alt="Immagine Proprietà">
+                    <img th:if="${property.imageUrl == null}" th:src="@{/images/property-placeholder.jpg}" class="card-img-top" alt="Immagine Proprietà">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${property.address}">Indirizzo Proprietà</h5>
+                        <p class="card-text">
+                            <strong>Città:</strong> <span th:text="${property.city}">Città</span><br>
+                            <strong>Prezzo:</strong> <span th:text="${#numbers.formatDecimal(property.price, 0, 'POINT', 2, 'COMMA')} + ' €'">Prezzo</span><br>
+                            <strong>Dimensione:</strong> <span th:text="${property.size} + ' m²'">Dimensione</span><br>
+                            <strong>Tipo:</strong> <span th:text="${property.type}">Tipo</span>
+                        </p>
+                        <a th:href="@{/property/{id}(id=${property.id})}" class="btn btn-primary">Dettagli</a>
+                        <div th:if="${#authorization.expression('hasAnyRole(''ADMIN'', ''AGENT'')')}">
+                            <a th:href="@{/property/edit/{id}(id=${property.id})}" class="btn btn-warning mt-2">Modifica</a>
+                            <a th:href="@{/property/delete/{id}(id=${property.id})}" class="btn btn-danger mt-2" onclick="return confirm('Sei sicuro di voler eliminare questa proprietà?')">Elimina</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info" th:if="${properties == null || properties.empty}">
+            Nessuna proprietà trovata.
+        </div>
+    </div>
+    
+    <footer th:replace="fragments/footer :: footer"></footer>
+    
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

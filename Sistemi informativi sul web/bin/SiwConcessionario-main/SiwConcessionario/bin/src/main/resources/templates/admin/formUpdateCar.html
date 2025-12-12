@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Aggiorna Auto</title>
+		<link rel="stylesheet" href="/stile.css?version=2" />
+	</head>
+	
+	<body>
+		<h1>Aggiorna Auto</h1>
+			<a th:text="${car.marca} + ' ' +${car.modello}">up!(2000)</a>	
+			<p>
+				<h3>Modifiche:</h3>
+				<a th:href="@{'/admin/removeCar/' + ${car.id} }">Rimuovi Auto dal Catalogo</a>
+				<br>
+				<a th:href="@{'/admin/manageOptionals/' + ${car.id} }">Modifica lista degli optionals</a>
+			</p>
+	</body>
+	
+	
+	
+</html>

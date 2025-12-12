@@ -1,0 +1,5 @@
+Agent agent=user.getAgent();
+
+Agent agent = currentUser.getAgent();
+
+Agent currentAgent = currentUser.getAgent();

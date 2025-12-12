@@ -1,0 +1,13 @@
+$TTL    60000
+@               IN      SOA     dnsedu.edu.    root.dnsedu.edu. (
+                        2024120401 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@                    IN      NS     dnsedu.edu.
+dnsedu.edu.            IN      A      200.0.1.2
+
+www.edu.		IN  A	200.0.1.1
+

@@ -1,0 +1,43 @@
+
+
+Prima parte
+
+Introduzione ai calcolatori Elettronici
+Breve storia dei calcolatori;
+Calcolatori odierni e loro evoluzione;
+Le architetture x86, ARM e AVR.
+Sistemi di numerazione binaria
+Numeri binari, sistemi di numerazione posizionale, conversioni di base;
+Numeri binari negativi, notazioni in complemento a uno e a due, notazione in eccesso 2m;
+Numeri in virgola mobile, lo standard IEEE 754;
+Codifica dei caratteri, i codici ASCII e UNICODE.
+L'organizzazione di un calcolatore
+Il processore e la sua organizzazione interna; CISC e RISC; le architetture parallele; la pipeline;
+La memoria centrale e la sua organizzazione interna; codici a correzione d'errore; memorie cache;
+Le gerarchie della memoria; dischi magnetici, dischi RAID; dischi a stato solido; organizzazione dei dati su memoria secondaria e modalità di accesso;
+Struttura fisica di un calcolatore;
+I circuiti digitali e le memorie
+Richiami sull'algebra booleana, porte logiche; implementazione di funzioni booleane;
+I circuiti logici di base; i segnali di clock; i circuiti dell'Unità Aritmetico Logica;
+Latch e flip-flop; l'organizzazione della memoria centrale, chip di memoria, RAM e ROM.
+
+
+Seconda parte
+
+I Bus
+Bus sincroni ed asincroni;
+Temporizzazione dei segnali sui bus;
+I bus PCI, PCI Express e USB.
+La microarchitettura di un calcolatore
+La microarchitettura, il cammino dei dati e le microistruzioni;
+Ottimizzazione di una microarchitettura, aumento dei bus, prefetching e pipelining;
+La memoria cache, memorie associative pure, a mappa diretta, associative ad insiemi;
+Microarchitettura del Core i7, dell'OMAP4430, e dell'ATmega168.
+Programmazione in linguaggio Assembler x86 per l'architettura 8088 con particolare riferimento alle seguenti tecniche:
+Gestione della memoria;
+Gestione dell'I/O;
+Gestione di array;
+Gestione di subroutine.
+
+
+Ultime modifiche: Monday, 13 February 2023, 15:10

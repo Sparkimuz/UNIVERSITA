@@ -1,0 +1,27 @@
+package com.leocentu.progettopersonale.service;
+
+import com.leocentu.progettopersonale.model.Credenziali;
+
+import com.leocentu.progettopersonale.repository.CredenzialiRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CredenzialiService {
+    @Autowired
+    private CredenzialiRepository credenzialiRepository;
+
+    public boolean existsByUsername(String username) {
+        return credenzialiRepository.existsByUsername(username);
+    }
+
+    public void save(Credenziali credenziali) {
+        this.credenzialiRepository.save(credenziali);
+    }
+
+    public Long findIdByUsername(String username) {
+        return this.credenzialiRepository.findIdByUsername(username);
+    }
+}

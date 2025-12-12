@@ -1,0 +1,83 @@
+Esonero 2021
+
+---
+
+### 1. Rappresentazioni di interi  
+1. **Q:** Rappresentare il numero **-11** nel sistema **in eccesso a 16** su **5 bit** (sequenza senza spazi).  
+   **A:** `00101`  
+
+2. **Q:** Rappresentare il numero **+15** nel sistema **in complemento a due** su **6 bit** (sequenza senza spazi).  
+   **A:** `001111`
+
+---
+
+### 2. Notazione A (virgola mobile a 10 bit)  
+*(1 bit segno, 5 bit esponente in eccesso 16, 4 bit mantissa frazionaria normalizzata fra 1 e 2)*  
+
+3. **Q:** Rappresentare il numero **+9**.  
+   **A:** `0100110010`
+
+4. **Q:** Rappresentare il numero **-1**.  
+   **A:** `1100000000`
+
+5. **Q:** Rappresentare nella notazione A il numero che, nel sistema in complemento a due, è la stringa esadecimale **2C**.  
+   **A:** `0101010110`
+
+6. **Q:** Indicare l’eventuale **errore assoluto** commesso al punto precedente.  
+   **A:** `0`
+
+---
+
+### 3. Esercizi su RAID  
+*(Si assume una RAID unit “visibile” da 1 TB con blocchi/strip da 512 KB)*  
+
+7. **Q:** Dimensione dei singoli dischi in un **RAID 0 con 8 dischi** (formato XM).  
+   **A:** **128 GB**
+
+8. **Q:** Memoria fisica complessiva necessaria in un **RAID 1 con 4 dischi** (formato XM).  
+   **A:** **2 TB**
+
+9. **Q:** Dimensione dei singoli dischi in un **RAID 1 con 2 dischi** in totale (formato XM).  
+   **A:** **1 TB**
+
+10. **Q:** Dimensione del **disco di parità** in un **RAID 4 con 5 dischi**.  
+    **A:** **256 GB**
+
+---
+
+### 4. Cache e memoria  
+
+11. **Q:** Tempo necessario per il **primo accesso** al primo elemento del vettore A (ns).  
+    **A:** `22`
+
+12. **Q:** Numero complessivo di **accessi alla memoria principale** necessari per eseguire il programma.  
+    **A:** `4`
+
+13. **Q:** **Cache hit ratio** complessivo del programma (in %).  
+    **A:** `60 %`
+
+14. **Q:** Tempo **totale di esecuzione** del programma (ns) assumendo 1 ns per ogni confronto tra due elementi.  
+    **A (corretta):** `105`  
+
+---
+
+### 5. Algebra booleana e logica combinatoria  
+
+15. **Q:** Indicare quale espressione booleana descrive la tabella della verità mostrata.  
+    **A:** \[(A ∧ ¬B ∧ C) ∨ (¬A ∧ B ∧ C)\]
+
+16. **Q:** Indicare quale espressione booleana è **equivalente** a quella della domanda precedente.  
+    **A (tutte accettate):**  
+    - **A XOR B**  
+    - (¬A ∧ B) ∨ A  
+    - ¬(A XOR B)  
+    - (A XOR C) ∧ B  
+    *(Nel test era selezionata “A XOR B”; la soluzione formalmente corretta era “(A XOR B) AND C”, ma per refuso sono state considerate giuste tutte le opzioni sopra.)*
+
+17. **Q:** Dato il circuito logico illustrato, indicare l’espressione calcolata.  
+    **A:** **Nessuna delle precedenti** (tra quelle elencate nel test).
+
+### 18. Circuito digitale (flip-flop D + porte)  
+
+**Q:** Descrivere il seguente circuito digitale (otto flip-flop D che memorizzano due parole da 4 bit, confronto bit-a-bit con porte XNOR, poi AND finale).  
+**A:** Un **circuito sequenziale** in grado di **memorizzare due dati di 4 bit e testarne l’uguaglianza**.

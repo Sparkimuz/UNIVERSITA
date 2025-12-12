@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${title} ?: 'Catalogo'">Catalogo</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<nav class="topbar">
+  <a href="/" class="brand">Catalogo</a>
+  <a href="/admin/products" class="pill" sec:authorize="hasRole('ADMIN')">Admin</a>
+  <form action="/products" method="get" class="search">
+    <input type="text" name="name" placeholder="Cerca prodotti" th:value="${searchName}">
+    <button type="submit">Cerca</button>
+  </form>
+  <div class="auth">
+    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" style="display:inline">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      <button type="submit" class="linklike">Logout</button>
+    </form>
+    <a sec:authorize="isAnonymous()" href="/login">Login</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Esplora</h1>
+  <div class="chips" th:if="${types}">
+    <a th:each="t: ${types}" th:href="@{'/products'(type=${t})}" th:text="${t}"></a>
+  </div>
+  <h2>Novità</h2>
+  <div class="grid">
+    <a class="card linkcard" th:each="p: ${products}" th:href="@{'/products/' + ${p.id}}">
+      <h3 th:text="${p.name}">Nome</h3>
+      <p class="muted" th:text="${p.type} ?: '-'">Tipo</p>
+      <p class="price" th:text="${p.price != null ? #numbers.formatDecimal(p.price,1,2) + ' €' : '—'}">0,00 €</p>
+      <span class="cta">Dettagli</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

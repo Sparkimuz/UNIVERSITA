@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cuoco</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/ricette.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul>
+				<li><img src="/images/logoIndex.jpg" alt="Logo"></li>
+				
+                <li><a href="/success">Home</a></li>
+                <li><a href="/ricette">Ricette</a></li>
+                <li><a href="/cuochi">Cuochi</a></li>
+            </ul>
+        </nav>
+        <div class="cta">
+           <div th:if="${userDetails}">
+			 <span th:text="${userDetails.username}"></span>
+			 <a href="/logout" class="button">Logout</a>
+		   </div>
+		   <div th:unless="${userDetails}">
+             <a href="/login" class="button">Login</a>
+		   </div>
+        </div>
+    </header>
+
+<body>
+    <h1 class="text-center my-4" th:text="${cuoco.name}+' '+${cuoco.surname}">Chef</h1>
+
+	<div class="container">
+       
+      <div class="row g-0 bg-body-secondary position-relative">
+        <div class="col-md-6 mb-md-0 p-md-4">
+        <img th:src="@{'/display/image/' + ${cuoco.image.id}}" class="w-100" alt="...">
+      </div>
+  
+    <div class="col-md-6 p-4 ps-md-0 thin-text ">
+        <h3> Informazioni sulla Chef:   </h3>
+         <div th:if="${cuoco}">
+           <h5 class="my-4"> Email:   </h5>
+             <a class="list-group-item list-group-item-action list-group-item-info" th:text="${cuoco.email}" > </a>
+           <h5 class="my-4"> Data di nascita:   </h5>
+             <a class="list-group-item list-group-item-action list-group-item-info" th:text="${cuoco.data}" > </a>
+             
+            <div class="description">
+			<a th:if="${credentials.role=='ADMIN'}"
+			   th:href="@{'/modificaCuoco/'+${cuoco.id}}" class="button">Modifica</a>
+	    </div>
+         </div>
+       <div th:unless="${cuoco}">Non ci sono dati di questo cuoco</div>    
+      </div>
+     </div>
+
+        
+     <h3 class="text-center my-4">Le sue ricette:</h3>
+            
+      <div th:if="${ricette == null or #lists.isEmpty(ricette) }">Non ci sono ricette associate a questo cuoco</div>
+      
+      <div th:if="${ricette != null }">
+     
+          <ul class="list-group">
+            <li class="list-group-item  d-flex justify-content-between" th:each="ricetta : ${ricette}">
+				
+                   <div class="p-2 flex-grow-1">
+					   <a th:href="@{'/ricetta' + '/' + ${ricetta.id}}"
+				          th:text="${ricetta.nome} "></a>
+				    </div>
+                    <div class="p-2">
+						<a  th:if="${currentUsername == cuoco.credentials?.username || credentials.role=='ADMIN'}"
+                            th:href="@{'/ricetta/modifica/' + ${ricetta.id}}" class="btn btn-danger btn-sm">Modifica</a> 
+                    </div>
+             </li>
+           </ul>
+         <div class="description">
+			<a th:if="${currentUsername == cuoco.credentials?.username || userDetails.username=='Veronica'}"
+			   th:href="@{/addRicetta}" class="button">Aggiungi nuove ricette</a>
+	    </div>
+      </div>
+     <div class="description"> </div>
+
+  </body>
+  
+  
+</html>
+

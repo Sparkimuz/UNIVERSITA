@@ -1,0 +1,3 @@
+ip link set eth0 up
+ip addr add 193.205.142.178/30 dev eth0     # IP di A sulla LAN davanti ad A (esempio)
+ip route add default via 193.205.142.177     # router-A come default gateway

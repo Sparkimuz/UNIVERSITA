@@ -1,0 +1,224 @@
+
+:root {
+  --primary: rgb(0, 128, 0);
+  --primary-600: #0f9340;
+  --primary-700: #0c7a35;
+  --bg: #f5f7f5;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+  --focus: 0 0 0 3px rgba(16,185,129,0.35);
+  --footer-h: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(1200px 600px at 50% -200px, rgba(16,185,129,0.08), transparent) var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 1000px;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);
+  color: #fff;
+  padding: 14px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.indietro img {
+  width: 32px;
+  margin-left: 18px;
+  margin-right: 12px;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  transition: transform .2s ease, opacity .2s ease;
+  padding-top: 4px;
+}
+
+.indietro img:hover {
+  transform: translateY(-1px) scale(1.03);
+  opacity: 0.9;
+}
+
+main {
+  flex: 1;
+}
+
+.immagine-classifica {
+  width: 40px;
+  height: auto;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.item-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+  min-width: 0;
+}
+
+.item-lista:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.riga-lista {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.riga-lista p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.riga-lista:last-child {
+  margin-bottom: 6px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+
+.ricerca {
+  margin-left: 18px;
+  margin-top: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  max-width: 640px;
+}
+
+.ricerca h2 {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin: 0 0 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.ricerca input[type="text"] {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 16px;
+  width: 220px;
+  max-width: 100%;
+  outline: none;
+  background: #f9fafb;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.ricerca input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: var(--focus);
+  background: #fff;
+}
+
+.ricerca input[type="submit"] {
+  padding: 12px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .05s ease;
+}
+
+.ricerca input[type="submit"]:hover {
+  background-color: var(--primary-600);
+}
+
+.ricerca input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+.ricerca .reset {
+  padding: 12px 18px;
+  background: #ffffff;
+  color: var(--primary);
+  border-radius: 10px;
+  font-size: 16px;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.ricerca .reset:hover {
+  background: #f3f4f6;
+}
+
+.footer {
+  display: none;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #e5fff0;
+}

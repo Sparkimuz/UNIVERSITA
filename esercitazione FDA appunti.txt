@@ -1,0 +1,19 @@
+clear all
+syms y(t)
+
+il delta alla -1 si moltiplica per la U nella ode
+
+Il vettore T prende tutte le t
+mentre il vettore U prende tutti i valori della funzione
+
+entrambi vanno in lsim
+
+
+T=
+U=1*ones(size(T))
+Y=lsim(sys,U,T,[4 0]);
+plot(T, Y), grid
+
+s=tf("s")
+
+F=24/(s^3+9*s^2+26*s+24)

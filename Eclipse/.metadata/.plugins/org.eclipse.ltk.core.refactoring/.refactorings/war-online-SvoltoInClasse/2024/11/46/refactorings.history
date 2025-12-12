@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;war-online-SvoltoInClasse/war-online-SvoltoInClasse/src/war/gui/Main.java&apos; to &apos;Main2.java&apos;" description="Rename resource &apos;Main.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="war-online-SvoltoInClasse/src/war/gui/Main.java" name="Main2.java" stamp="1731334872011" updateReferences="true"/>
+</session>

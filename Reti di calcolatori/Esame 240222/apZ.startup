@@ -1,0 +1,3 @@
+#!/bin/bash
+ip link set eth0 up
+# Nessun IP: lasciamo L2 puro. (Se vuoi, ip link set eth0 mtu 1500)

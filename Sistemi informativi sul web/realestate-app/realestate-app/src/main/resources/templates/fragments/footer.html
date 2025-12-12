@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer - Agenzia Immobiliare</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <footer th:fragment="footer" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Agenzia Immobiliare</h5>
+                    <p>La tua soluzione per trovare la casa dei tuoi sogni.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Link Utili</h5>
+                    <ul class="list-unstyled">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/property/all}">Proprietà</a></li>
+                        <li><a th:href="@{/agent/all}">Agenti</a></li>
+                        <li><a th:href="@{/agency/all}">Agenzie</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contatti</h5>
+                    <address>
+                        <strong>Sede Centrale</strong><br>
+                        Via Roma, 123<br>
+                        00100 Roma, Italia<br>
+                        <abbr title="Telefono">Tel:</abbr> (123) 456-7890
+                    </address>
+                    <address>
+                        <strong>Email</strong><br>
+                        <a href="mailto:info@agenzia-immobiliare.it">info@agenzia-immobiliare.it</a>
+                    </address>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <p class="mb-0">&copy; 2025 Agenzia Immobiliare. Tutti i diritti riservati.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #dfdfdf
+}
+
+.nav-bar {
+	background-color: white;
+	box-shadow: 0 2px #222;
+	position: sticky;
+	height: 75px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 2%;
+	padding-left: 10%;
+}
+
+.siw-text {
+	font-weight: 500;
+	font-size: x-large;
+	display: none;
+}
+
+.nav-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+.ali {
+	text-decoration: none;
+	color: #222;
+}
+
+.nav-bar li {
+	list-style: none;
+	font-size: larger;
+}
+
+.account-reg-log {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+}
+
+#reg-button {
+	margin-bottom: 0.5rem;
+}
+
+.reg-log-button {
+	text-decoration: none;
+	color: #222;
+	display: flex;
+	justify-content: center;
+	height: 110%;
+	width: 140%;
+	border-radius: 1rem;
+	background-color: #dfdfdf;
+	box-shadow: 0 0 2px 1px black;
+}
+
+.hamburger {
+	display: none;
+}
+
+.icons-home {
+	height: 50px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.title{
+	display: flex;
+	justify-content: center;
+	font-size: x-large;
+	width: auto;
+}
+
+.img-text{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 10%;
+	margin: 0 4%;
+	align-items: center;
+}
+
+.img{
+	margin-top: 4%;
+	height: auto;
+	width: 45rem;
+	border-radius: 50px;
+	box-shadow: black 1px 1px 5px;
+}
+
+.infos{
+	display: flex;
+	flex-direction: column;
+	font-size: x-large;
+	text-align:center;
+	width: 30%;
+	gap:3vh;
+}
+
+
+#review{
+	display:inline-block;
+	border: 2px solid black;
+	padding:5px 5px;
+	border-radius:20px;
+	margin-top:15px;
+	text-decoration: none;
+	box-shadow:10px 10px 20px rgba(0, 0, 0, 0.1),
+	-10px -10px 20px rgba(0, 0, 0, 0.2);
+	transition:1s;
+	width: 100%;
+}
+
+#review a{
+	text-decoration: none;
+	color:black;
+	
+}
+
+#review::after{
+	content: '';
+	width: 0;
+	height: 2px;
+	background:red;
+	display: block;
+	margin: auto;
+	transition: 1s;
+}
+
+#review:hover::after{
+	width: 90%;
+}
+
+
+
+.optionals{
+	width:100%;
+	height:auto;
+	margin-top:5%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 5%;
+}
+
+.optionals h2{
+	text-align: center;
+	font-size:40px;
+	font-weight:700;
+}
+
+.optional{
+	display: flex;
+	justify-content: center;
+	margin-top:5%;
+	font-size:30px;
+	font-weight: 500;
+}
+
+.optional li{
+	font-size: large;
+	font-weight: 500;
+	list-style: decimal;
+}
+
+#fornitore-text{
+	color: black;
+}
+
+
+@media(max-width: 768px){
+	
+	.nav-bar{
+		min-height: 70px;
+		justify-content: space-between;
+		padding: 0 24px;
+	}
+	
+	.ali{
+		transition: 0.7s ease;
+	}
+
+	.hamburger{
+		display: block;
+		cursor: pointer;
+	}
+	
+	.bar{
+		display: block;
+		width: 25px;
+		height: 3px;
+		margin: 5px auto;
+		-webkit-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		background-color: black;
+	}
+	
+	.hamburger.active .bar:nth-child(2){
+		opacity: 0;
+	}
+	.hamburger.active .bar:nth-child(1){
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger.active .bar:nth-child(3){
+		transform: translateY(-8px) rotate(-45deg);
+	}
+	
+	.nav-menu{
+		position: fixed;
+		padding: 0 50px 20px 0;
+		right: -36%;
+		top: 77px;
+		flex-direction: column;
+		background-color: white;
+		box-shadow: -1px 1px 5px #222;
+		width: 35%;
+		transition: 0.3s;
+		border-radius: 50px;
+	}
+	
+	.siw-text{
+		display: flex;
+	}
+	
+	.nav-item{
+		margin: 20px auto;
+	}
+	
+	.nav-menu.active{
+		right: -9%;
+	}
+	
+	.reg-log-button{
+		height: 140%;
+		margin: 5px;
+		width: 130%;
+		background-color: #dfdfdf;
+	}
+	
+	.img-text{
+		justify-content: start;
+	}
+	
+	.img-car{
+		margin-left: 10%;
+		width: 25rem;
+		height: auto;
+		margin-bottom: 5%;
+	}
+	
+	.infos{
+		margin-left: 10%;
+		flex-wrap: wrap;
+	}
+	
+	#fornitore{
+		font-size: larger;
+	}
+	
+	.optional{
+		width: 200%;
+	}
+	
+	
+	
+	
+	
+	
+}
+
+@media(max-width: 600px){
+	.nav-menu{
+		width: 45%;
+		right: -46%;
+	}
+}
+

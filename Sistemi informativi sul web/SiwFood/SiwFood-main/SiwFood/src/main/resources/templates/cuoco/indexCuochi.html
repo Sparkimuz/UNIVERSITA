@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <ul>
+		<li><img src="/images/logoIndex.jpg" alt="Logo"></li>
+		
+        <li><a href="/success">Home</a></li>
+        <li><a href="/ricette">Ricette</a></li>
+        <li><a href="/cuochi">Cuochi</a></li>
+      </ul>
+    </nav>
+    <div class="cta">
+       <div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout" class="button">Logout</a>
+		</div>
+		 
+	</div>
+  </header>
+  
+  
+  <div class="hero">
+    <div class="hero__content">
+      <h1 th:text="'Benvenuto Chef' + ' '+ ${userDetails.username}"> </h1>
+    </div>
+		
+		
+    <div class="hero__image">
+      <img src="/images/logoIndex.jpg" class="img-res img-round" style="height: 300px; width: 500px; margin-right: 10px;" alt="im">
+    </div>
+  </div>
+  
+   <div class="description">
+    <h2>Leggi, condividi e crea le tue ricette preferite!</h2>
+     <p> Inoltre ccontrolla gli ingredienti necessari. Se manca qualcosa, aggiungilo tu stesso</p>
+    
+    <div class="buttons">
+    <a href="/manage" class="button">SCOPRI COME</a>
+    <a th:href="@{'/cuoco/'+${user.id}}" class="button-profilo">IL MIO PROFILO</a>
+
+    </div>
+  </div>
+</body>
+</html>

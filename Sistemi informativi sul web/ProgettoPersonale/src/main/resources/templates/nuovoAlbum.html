@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuovo Album</title>
+    <link rel="stylesheet" th:href="@{/css/nuovoAlbum.css}" type="text/css">
+    <link rel="stylesheet" href="/static/css/nuovoAlbum.css">
+</head>
+<body>
+<header>
+    <a class="indietro" th:href="@{/}">
+        <img alt="index" th:src="@{/images/back-arrow.png}">
+    </a>
+    <div class="container">
+        <h1>Aggiungi un Album</h1>
+    </div>
+</header>
+<main>
+    <div class="principale">
+        <h1>Nuovo Album</h1>
+        <form th:action="@{/musicista/albumAggiunto}" th:method="POST">
+            <label>
+                <input name="titolo" placeholder="Titolo" required type="text">
+            </label>
+            <label>
+                <textarea name="testo" placeholder="Testo" required></textarea>
+            </label>
+            <label>
+                <input name="musicistaId" th:value="${musicistaId}" type="hidden">
+            </label>
+            <button type="submit">Inserisci</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

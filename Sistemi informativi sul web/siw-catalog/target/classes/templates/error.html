@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Errore</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Si è verificato un errore</h1>
+  <p th:text="${message} ?: 'Errore imprevisto.'">Errore imprevisto.</p>
+  <p><a href="/">Torna alla home</a></p>
+</div>
+</body>
+</html>

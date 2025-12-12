@@ -1,0 +1,27 @@
+! 
+_EXIT = 1
+_PRINTF = 127
+.SECT .TEXT
+start:
+MOV SP,BP
+MOV CX, end - vec
+MOV BX, vec
+MOV SI, CX
+SHR CX, 1
+SUB SI, 2
+1: MOV DX, (BX)(SI)
+SUB SI, 2
+PUSH DX
+PUSH format
+PUSH _PRINTF
+SYS
+LOOP 1b
+MOV SP,BP
+PUSH 0
+PUSH _EXIT
+SYS
+.SECT .DATA
+vec:  .WORD 3, -4, 7, 0
+end: .SPACE 1
+format: .ASCII "%d "
+.SECT .BSS

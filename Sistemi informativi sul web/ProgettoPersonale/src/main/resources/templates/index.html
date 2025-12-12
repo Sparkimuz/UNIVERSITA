@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Circolo Musicale</title>
+    <link rel="stylesheet" th:href="@{css/index.css}">
+    <link href="/static/css/index.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container" sec:authorize="isAnonymous()">
+        <h1>Benvenuto</h1>
+        <p>Esegui il login per usufruire di tutte le risorse!</p>
+        <a th:href="@{/login}" th:method="GET" class="button login-button">Accedi</a>
+    </div>
+
+    <div class="container" sec:authorize="isAuthenticated()">
+        <h1>Benvenuto <span sec:authentication="name"></span></h1>
+        <a th:href="@{/profilo}" th:method="GET" class="button login-button">Profilo</a>
+    </div>
+</header>
+<div class="container">
+    <div class="buttons">
+        <a th:href="@{/classifica}" th:method="GET" class="button">Classifica Musicisti</a>
+
+        <div sec:authorize="hasAuthority('MUSICISTA')">
+            <a th:href="@{/musicista/nuovoAlbum(username=${#authentication.principal.username})}" th:method="GET" class="button">Carica Album</a>
+        </div>
+        <div sec:authorize="!hasAuthority('MUSICISTA')">
+            <a th:href="@{/}" th:method="GET" class="button">Carica Album</a>
+        </div>
+
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/votazione}" th:method="GET" class="button">Vota Album</a>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/votazione(username=${#authentication.principal.username})}" th:method="GET" class="button">Vota Album</a>
+        </div>
+
+    </div>
+</div>
+<div class="permessi">
+    <div sec:authorize="!hasAuthority('MUSICISTA')">
+        <p class="avviso" style="color: red">Attenzione, non hai i permessi per caricare un nuovo album!</p>
+    </div>
+</div>
+<p class="avviso" style="color: green" th:if="${albumAggiunto != null}" th:text="${albumAggiunto}"></p>
+<footer class="footer">
+    <p>Circolo Musicale 2025</p>
+</footer>
+</body>
+</html>

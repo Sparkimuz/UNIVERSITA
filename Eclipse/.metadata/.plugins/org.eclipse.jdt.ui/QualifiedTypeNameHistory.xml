@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="war.tank.Factory"/>
+    <fullyQualifiedTypeName name="war.simulatore.GeneratoreCasuale"/>
+    <fullyQualifiedTypeName name="war.Direzione"/>
+    <fullyQualifiedTypeName name="war.tank.Explorer"/>
+    <fullyQualifiedTypeName name="war.costanti.CostantiSimulazione"/>
+    <fullyQualifiedTypeName name="war.Campo"/>
+    <fullyQualifiedTypeName name="war.Coordinate"/>
+    <fullyQualifiedTypeName name="prop.pers.NonPredicatore"/>
+    <fullyQualifiedTypeName name="prop.sim.Coordinate"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="prop.sim.Contatto"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="prop.sim.Simulatore"/>
+</qualifiedTypeNameHistroy>

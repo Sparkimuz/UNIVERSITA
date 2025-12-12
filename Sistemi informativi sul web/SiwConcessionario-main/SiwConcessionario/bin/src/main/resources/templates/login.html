@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/login.css">
+	<title>SiwConcessionario - Login</title>
+</head>
+
+<body>
+	<nav class="nav-bar">
+		<a href="/">
+			<img class="icons-home" src="/images/home.png"></img>
+		</a>
+		<h3 class="siw-text"> SiwConcessionario </h3>
+		<ul class="nav-menu">
+			<li class="nav-item">
+				<a class="ali" href="/car">Catalogo</a>
+			</li>
+			<li class="nav-item">
+				<a class="ali" href="/supplier">Fornitori</a>
+			</li>
+			<li class="nav-item">
+				<div class="account-reg-log">
+					<a th:if="${userDetails}" id="reg-button" class="reg-log-button" href="/logout"> Logout </a>
+					<a th:unless="${userDetails}" id="reg-button" class="reg-log-button" href="/register"> Registrati
+					</a>
+					<a th:unless="${userDetails}" class="reg-log-button" href="/login"> Login </a>
+				</div>
+			</li>
+		</ul>
+		<div class="hamburger">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+	</nav>
+
+	<div class="login-box">
+		<form class="form" th:action="@{/login}" , method="POST">
+
+			<div class="login-header">
+				<header>Login</header>
+			</div>
+			<div class="input-box">
+				<input type="text" name="username" class="input-field" placeholder="Username" autocomplete="off"
+					required>
+			</div>
+			<div class="input-box">
+				<input type="password" name="password" class="input-field" placeholder="Password" autocomplete="off"
+					required>
+			</div>
+			<div class="input-submit">
+				<button class="submit-btn" id="submit"></button>
+				<label for="submit">Entra</label>
+			</div>
+			<div class="sign-up-link">
+				<p>Non hai un account? <a href="/register">Registrati</a></p>
+
+			</div>
+		</form>
+
+		<script>
+			const hamburger = document.querySelector(".hamburger");
+			const navMenu = document.querySelector(".nav-menu");
+			hamburger.addEventListener("click", () => {
+				hamburger.classList.toggle("active");
+				navMenu.classList.toggle("active");
+			})
+			document.querySelectorAll(".nav-link").forEach(n => n.addeaddEventListener("click", () => {
+				hamburger.classList.remove("active");
+				navMenu.classList.remove("active");
+			}))
+		</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+!Somma dei primi n numeri
+_EXIT = 1
+_PRINTF = 127
+.SECT .TEXT
+start:
+MOV BP,SP
+PUSH (n)
+CALL SUM
+MOV SP,BP
+PUSH AX
+PUSH (n)
+PUSH fmt
+PUSH _PRINTF
+SYS
+MOV SP, BP
+PUSH 0
+PUSH _EXIT
+SYS
+SUM:
+PUSH BP
+MOV BP, SP
+MOV CX, 4(BP)
+MOV AX, 0
+1: ADD AX, CX
+LOOP 1b
+MOV SP, BP
+POP BP
+RET
+.SECT .DATA
+n: .WORD 5
+fmt: .ASCII "La somma dei primi %d interi e' %d."
+.SECT .BSS

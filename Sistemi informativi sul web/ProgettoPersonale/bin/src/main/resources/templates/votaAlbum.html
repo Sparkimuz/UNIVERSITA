@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Votazione Album</title>
+    <link rel="stylesheet" th:href="@{css/votaAlbum.css}">
+    <link href="/static/css/votaAlbum.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <a class="indietro" th:href="@{/}">
+        <img alt="index" th:src="@{/images/back-arrow.png}">
+    </a>
+    <div class="container">
+        <h1>Vota Album</h1>
+    </div>
+</header>
+<main>
+    <div class="principale">
+        <h1 th:text="${album.titolo}"></h1>
+        <p class="testo" th:text="${album.testo}"></p>
+        <form class="form-voto" th:action="@{/inviaVoto}" th:method="POST">
+            <label>
+                <input th:type="number" th:name="voto" min="1" max="10" th:placeholder="10" required>
+            </label>
+            <input th:type="hidden" name="albumId" th:value="${album.id}">
+            <input th:type="hidden" name="username" th:value="${username}">
+            <button class="form-button" type="submit">Invia Voto</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
