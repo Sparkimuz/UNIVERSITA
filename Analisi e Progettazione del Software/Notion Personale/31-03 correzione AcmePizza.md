@@ -1,0 +1,20 @@
+- E’ partito direttamente dal primo caso d’uso, evitando la prima pagina??
+- Il portale non è mai singleton, tipicamente l’azienda principale è singleton
+- Il portale è spesso il punto di accesso al sistema
+- Preferisce avere il nome dell’azienda per la classe piuttosto che direttamente “Azienda”
+- Preferisce l’uso della parola Portale… per definire il punto di accesso
+- Gli insiemi si rappresentano come assocazioni tipicamente, sopratutto se non hanno un nome specifico
+- Da molta importanza a quanto il termine sia significativo all’interno del testo, Menu anche se non ha attributi e ha 1 associazione 1…1  è comunque un termine importante. Ha definito il modello di dominio come un “Glossario di termini importanti” più o meno
+- Ragiona più a caso d’uso, nel primo caso d’uso quando sceglieva i nomi ha preferito mettere DescrizionePizza o TipoDiPizza più che Pizza perché nel caso d’uso non viene menzionato che la pizza viene cucinata ma solo inserita.
+- Non si devono confondere le pizze(vere che si mangiano) con le descrizioniPizza che sono quelle che sono inserite, mostrate e scelte da titolare, cliente
+- Il concetto più importante è pizzeria
+- Regola vera sempre: mettere le composizioni vicino al singleton non serve a niente
+- Se il test linguistico fallisce non è una composizione (test lingiustico: Il titolare è composto da pizzerie?)
+- Dobbiamo avere un sistema sempre connesso ragionando sui passaggi, PizzaDelivery quando nasce non ha pizzerie, quindi il titolare deve essere registrato su PizzaDelivery e deve inserire le pizzerie. Quindi è necessaria un’associazione tra Titolare e PizzaDelivery per rappresentare quel momento
+- I casi d’uso non devono essere necessariamente seguiti in ordine logico di numero, potrebbe venire prima il caso d’uso uC3 che uc1
+- Si passa al caso d’uso UC2
+- Errore scrivere Effettua tra Cliente e Ordine, Non usare il presenta ma il passato, quindi ha effettuato è meglio
+- 0…1 Significa che solamente 1 istanza di ordine può effettuare ordini alla pizzeria
+- voceOrdine —— DescrizionePizza non si chiama è rappresentata da ma direttamente è relativa, la voceOrdine rappresenta la pizzaOrdinata non la descriizione della pizza
+- Erroraccio nell’associazione tra ProdottoAggiuntivo e Voce ordine, non è molti a 1 ma molti a molti, da correggere
+- Nella autovalutazione spiegare estensivamente ciò che si poteva migliorare e fare ragionamenti con esempi pratici sull’homework (Se chiede quali classi potevo migliorare rispondo: potevo migliorare la classe Titolare ecc.)

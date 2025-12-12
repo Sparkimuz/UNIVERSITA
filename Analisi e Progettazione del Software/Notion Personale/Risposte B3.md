@@ -1,0 +1,6 @@
+Risposte B3:
+
+- **NO.** Il cliente che effettua l’ordine risulta già registrato e noto al sistema. Dichiarare la post-condizione “è stato creato un nuovo Cliente c” sarebbe quindi scorretto, poiché il caso d’uso UC2 presuppone l’esistenza di un cliente autenticato. Non c’è alcuna operazione che implichi la creazione ex novo di un oggetto Cliente, ma solo l’utilizzo di un cliente già esistente.
+- **SÌ.** Quando si inserisce un nuovo articolo nell’ordine (ad esempio, una pizza), effettivamente si crea una nuova Voce Ordine v. Dunque è corretto scrivere questa post-condizione, perché descrive il cambiamento di stato del sistema: prima la voce non esisteva, dopo l’operazione sì.
+- **NO.** Dato che l’operazione di trovare la DescrizionePizza la svolge il sistema e non cambia il suo stato, è paragonabile alle operazioni in cui il sistema mostra dati. Cercare o trovare una Descrizione Pizza già esistente non modifica lo stato del sistema: non si crea nessun nuovo oggetto né si cambia alcun attributo o collegamento. Di conseguenza, non è opportuno inserire la post-condizione “è stata trovata la Descrizione Pizza dp di codice idPizza”.
+- **NO.** Non è necessario inserire la post-condizione perché non si memorizza una lista di Voci Ordine. Basta registrare il singolo collegamento tra la Voce Ordine e l’Ordine, senza creare alcun elenco.
