@@ -1,0 +1,31 @@
+- Classificatore di Bayes. Descrivere le basi teoriche (i.e., Teorema di Bayes) e la regola di classificazione. Illustrare - ad alto livello - le peculiarità degli approcci parametrici e non parametrici, specificando quando è preferibile utilizzare gli uni o gli altri, con le opportune motivazioni.
+
+- Valutazione delle prestazioni di un sistema di classificazione: definire e discutere le modalità e le metriche che possono essere impiegate per tale scopo.
+
+- Illustrare, avvalendosi anche di esempi (obbligatori!), in cosa consiste il problema di classificazione. Definire gli alberi di decisione e mostrare come possono essere impiegati in un problema di classificazione.
+
+- Descrivere gli alberi di decisione e gli scopi per i quali vengono maggiormente utilizzati. Illustrare in dettaglio la definizione e le differenze tra entropia e indice di Gini relativamente alla loro applicazione per la creazione degli alberi di decisione.
+
+- Classificazione binaria: Illustrare (anche con esempi) in cosa consiste tale task. Successivamente, definire e discutere le modalità e le metriche che possono essere adottate per valutare le prestazioni di un sistema di classificazione binario.
+
+- Object Detection: AP e mAP. Possibili diversi tipi di errore, tra cui: oggetto non trovato, classe errata, bounding box sbagliata o imprecisa. Come quantificare il tutto con uno scalare per rendere sistemi confrontabili?
+
+- Domanda bonus: overfitting
+
+- Descrivere in cosa consiste il processo di apprendimento (learning), introducendo i concetti di parametri e funzione obiettivo. Illustrare, anche con esempi (obbligatori!), le principali tipologie di apprendimento che si possono incontrare nel Machine Learning.
+
+- Definire, anche con esempi (obbligatori!), le metriche di Precision e Recall e il loro utilizzo nella valutazione dei sistemi di Machine Learning. Illustrare, inoltre, le curve Precision-Recall e come possono essere ricavate.
+
+- Illustrare, anche con esempi e schemi (obbligatori!), la procedura per l’utilizzo corretto di un dataset nello sviluppo e nella valutazione dei modelli di Machine Learning.
+
+- Illustrare gli alberi di decisione e il loro impiego nella risoluzione di problemi di classificazione.
+
+- Definire l'obiettivo e la formulazione matematica dell’Algoritmo C4.5.
+
+- Illustrare, anche con esempi (obbligatori!), i possibili task che si affrontano normalmente nel Machine Learning.
+
+- Addestramento di un classificatore: illustrare gli obiettivi (i.e., convergenza e generalizzazione), descrivere le possibili problematiche (e.g., overfitting) e discutere le relative soluzioni.
+
+- Illustrare, anche con esempi (obbligatori!), cosa si intende per sistemi con soglia e quali sono le metriche e le rappresentazioni che possono essere adottate per la loro valutazione sperimentale.
+
+- Descrivere anche con esempi (obbligatori!) il concetto di iperparametri dei modelli di Machine Learning e illustrare tecniche e procedure per la loro selezione automatica.

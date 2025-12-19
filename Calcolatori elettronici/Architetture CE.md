@@ -1,0 +1,9 @@
+- La Ram c’è sempre a meno che non è specificato di no
+- L’IR a sinistra riceve solamente dalla Ram
+- Il B nella linea di destra si collega sempre al decoder
+- L’alu nella linea di destra ha sempre la quantità di bit uguale alle operazioni che deve fare, 8 operazioni = 3, 16 operazioni = 4
+- L’MDR è sempre collegato bidirezionalmente con la Ram
+- Il MAR non riceve nulla da destra
+- Il decoder si collega a tutti tranne MAR e H
+- Il M nella linea di destra è sempre il riquadro che prende tutti i registri tranne quelli generali e H
+- Solo l’IR riceve dalla RAM/ROM tutti gli altri danno, tranne MDR che manda e riceve
