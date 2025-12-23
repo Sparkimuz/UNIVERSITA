@@ -1,11 +1,11 @@
-alb. dec. xxx
+alb. dec. xxx C
 sistemi soglia xx  xxxxxxxxxxxxxxxxxx
-clas. binaria x
+clas. binaria x 
 iperparametri xx xxxxxxxxxxxxxxxxxx V
 valut prestazioni x xxxxxxxxxxxxxxxxxxx V
-proc. appren. x
+proc. appren. x C
 precision/recall x xxxxxxxxxxxxx V
 utilizzo dataset x xxxxxxxxxxxxx
 task machine learn x
-addes class. x
+addes class. x C
 open closed set x xxxxxxxxxxxxxx
