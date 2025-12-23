@@ -1,0 +1,11 @@
+alb. dec. xxx
+sistemi soglia xx  xxxxxxxxxxxxxxxxxx
+clas. binaria x
+iperparametri xx xxxxxxxxxxxxxxxxxx V
+valut prestazioni x xxxxxxxxxxxxxxxxxxx V
+proc. appren. x
+precision/recall x xxxxxxxxxxxxx V
+utilizzo dataset x xxxxxxxxxxxxx
+task machine learn x
+addes class. x
+open closed set x xxxxxxxxxxxxxx
